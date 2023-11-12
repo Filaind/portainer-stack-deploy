@@ -5,7 +5,9 @@
     "outDir": "./lib",
     "strict": true,
     "noImplicitAny": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strictPropertyInitialization":false,
+    "strictNullChecks":false,
   },
   "include": ["src", "__tests__"],
   "exclude": ["node_modules", "lib", "dist"]

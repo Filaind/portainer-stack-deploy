@@ -7,17 +7,14 @@ export async function run(): Promise<void> {
     const portainerHost: string = core.getInput('portainer-host', {
       required: true
     })
-    const username: string = core.getInput('username', {
+    const apiKey: string = core.getInput('portainer-api-key', {
       required: true
     })
-    const password: string = core.getInput('password', {
+    const endpointId: string = core.getInput('endpoint-id', {
       required: true
     })
     const swarmId: string = core.getInput('swarm-id', {
-      required: false
-    })
-    const endpointId: string = core.getInput('endpoint-id', {
-      required: false
+      required: true
     })
     const stackName: string = core.getInput('stack-name', {
       required: true
@@ -28,20 +25,15 @@ export async function run(): Promise<void> {
     const templateVariables: string = core.getInput('template-variables', {
       required: false
     })
-    const image: string = core.getInput('image', {
-      required: false
-    })
 
     await deployStack({
       portainerHost,
-      username,
-      password,
-      swarmId,
-      endpointId: parseInt(endpointId) || 1,
+      endpointId: parseInt(endpointId),
+      swarmId: swarmId,
+      apiKey: apiKey,
       stackName,
       stackDefinitionFile,
       templateVariables: templateVariables ? JSON.parse(templateVariables) : undefined,
-      image
     })
     core.info('✅ Deployment done')
   } catch (error) {

@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  wbprod_product_service_5:
+    image: 005124420937.dkr.ecr.eu-north-1.amazonaws.com/wbprod_product_service:latest
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 128M
+      restart_policy:
+        condition: on-failure
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.product.rule=PathPrefix(`/product_new`)
+
+networks:
+  traefik:
+    name: traefik
+    external: true

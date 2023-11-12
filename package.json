@@ -23,11 +23,13 @@
   "dependencies": {
     "@actions/core": "^1.9.0",
     "axios": "^0.27.2",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "node-fetch": "^2.7.0"
   },
   "devDependencies": {
     "@types/jest": "^28.1.4",
     "@types/node": "^18.0.0",
+    "@types/node-fetch": "^2.6.9",
     "@typescript-eslint/parser": "^5.30.3",
     "@vercel/ncc": "^0.34.0",
     "js-yaml": "^4.1.0",

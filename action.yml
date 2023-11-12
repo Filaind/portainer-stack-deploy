@@ -1,5 +1,5 @@
-name: 'Deploy a Portainer stack'
-description: 'Github Action to deploy a stack to a Portainer instance'
+name: 'Deploy a Portainer swarm stack'
+description: 'Github Action to deploy a swarm stack to a Portainer instance'
 author: 'Findz'
 branding:
   icon: 'cloud'

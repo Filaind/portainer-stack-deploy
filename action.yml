@@ -1,0 +1,39 @@
+name: 'Deploy a Portainer stack'
+description: 'Github Action to deploy a stack to a Portainer instance'
+author: 'Findz'
+branding:
+  icon: 'cloud'
+  color: 'blue'
+
+inputs:
+  portainer-host:
+    required: true
+    description: 'Portainer host, eg. https://myportainer.instance.com'
+  username:
+    required: true
+    description: 'Username for the Portainer login. NOTE: Do not use admin account! Create a new CI specific login'
+  password:
+    required: true
+    description: 'Password for the Portainer login'
+  swarm-id:
+    required: false
+    description: 'ID of the swarm. Only required if you deploy to a swarm.'
+  endpoint-id:
+    required: false
+    description: 'ID of the Portainer node to deploy to'
+  stack-name:
+    required: true
+    description: 'Name for the Portainer stack'
+  stack-definition:
+    required: true
+    description: 'The path to the docker-compose stack stack definition file, eg. stack-definition.yml'
+  template-variables:
+    required: false
+    description: 'If given, these variables will be replaced in docker-compose file by handlebars'
+  image:
+    required: false
+    description: 'The URI of the container image to insert into the stack definition, eg. docker.pkg.github.com/username/repo/master'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

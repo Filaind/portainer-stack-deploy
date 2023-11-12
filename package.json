@@ -1,0 +1,38 @@
+{
+  "name": "portainer-stack-deploy",
+  "version": "1.0.0",
+  "description": "Github Action to deploy a swarm stack to a Portainer instance",
+  "author": "Findz",
+  "license": "MIT",
+  "main": "lib/main.js",
+  "keywords": [
+    "actions",
+    "node"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.publish.json",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "lint": "eslint ./**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
+    "test": "npm run test:ts && npm run test:unit",
+    "test:unit": "jest",
+    "test:ts": "tsc --noEmit",
+    "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
+  },
+  "dependencies": {
+    "@actions/core": "^1.9.0",
+    "axios": "^0.27.2",
+    "handlebars": "^4.7.7"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.4",
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/parser": "^5.30.3",
+    "@vercel/ncc": "^0.34.0",
+    "js-yaml": "^4.1.0",
+    "nock": "^13.2.8",
+    "prettier": "2.7.1",
+    "typescript": "^4.7.4"
+  }
+}

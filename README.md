@@ -42,7 +42,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Deploy stack to Portainer
-        uses: filaind/portainer-stack-deploy@v1
+        uses: Filaind/portainer-stack-deploy@v1.0.2
         with:
           portainer-host: ${{ secrets.PORTAINER_HOST }}
           portainer-api-key: ${{ secrets.PORTAINER_API_KEY }}
